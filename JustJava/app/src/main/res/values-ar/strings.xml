@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Just Java</string>
+
+    <string name="toppings">اضافات</string>
+    <string name="order">اطلب</string>
+    <string name="name">الاسم</string>
+    <string name="whiped_cream">كريمه</string>
+    <string name="chocolate">شوكولاته</string>
+    <string name="quantity">الكميه</string>
+    <string name="thank_you"> شكرا لك</string>
+    <string name="order_summary">الاجمالي</string>
+    <string name="total">الاجمالي</string>
+
+
+
+</resources>

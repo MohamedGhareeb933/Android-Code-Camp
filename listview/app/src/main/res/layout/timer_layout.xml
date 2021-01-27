@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout_countdown"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_sub_countdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/editText_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Home" />
+
+        <TextView
+            android:id="@+id/text_view_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00:00"
+            android:textColor="@android:color/black"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/editText_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Guest" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_foulsAndScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView_HomeFouls"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Home Fouls: " />
+
+        <TextView
+            android:id="@+id/TextView_HomeScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Home Score" />
+
+        <TextView
+            android:id="@+id/textView_GuestScore"
+            android:layout_width="113dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="HomeScore" />
+
+        <TextView
+            android:id="@+id/TextView_GuestFouls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Guest Fouls" />
+
+    </LinearLayout>
+
+</LinearLayout>
