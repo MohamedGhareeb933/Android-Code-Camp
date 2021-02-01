@@ -1,6 +1,7 @@
 package com.example.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
@@ -14,11 +15,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
                     .setReorderingAllowed(true) //TODO - READ ABOUT
-                    .add(R.id.fragment_container_view, FragmentExample.class, null)
+                    .replace(R.id.fragment_container_view, FragmentExample.class, null, "tag")
+                    .addToBackStack("name")
                     .commit();
+
+            // find fragment by tag
+            FragmentExample fragmentExample = (FragmentExample) fragmentManager.findFragmentByTag("tag");
         }
     }
 }
