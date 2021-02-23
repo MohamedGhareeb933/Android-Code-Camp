@@ -82,11 +82,17 @@ public class Manager {
                 viewList.get(position).changeText("Clicked");
                 adapter.notifyItemChanged(position);
             }
+
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+            }
+
         });
     }
 
     public void insertItem(int position) {
-        if (position <= viewList.size()) {
+        if (position <= viewList.size() && position >= 0) {
             viewList.add(position ,new ViewClass(R.drawable.ic_baseline_cake_24, "line" + position, "line" + position));
             adapter.notifyItemInserted(position);
         }else {

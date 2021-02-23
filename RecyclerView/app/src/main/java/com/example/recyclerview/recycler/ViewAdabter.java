@@ -1,5 +1,6 @@
 package com.example.recyclerview.recycler;
 
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
 
     public interface OnItemClickListener{
         void onItemClick(int position);
+        void onDeleteClick(int position);
+
     }
 
     public void setOnItemClickListener(OnItemClickListener clickListener) {
@@ -34,6 +37,7 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
         public ImageView image;
         public TextView text1;
         public TextView text2;
+        public ImageView delete;
 
         public viewHolder(@NonNull View itemView, OnItemClickListener clickListener) {
             super(itemView);
@@ -41,6 +45,7 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
             image = itemView.findViewById(R.id.imageview);
             text1 = itemView.findViewById(R.id.textview1);
             text2 = itemView.findViewById(R.id.textview2);
+            delete = itemView.findViewById(R.id.Image_delete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -49,6 +54,18 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
                             clickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clickListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            clickListener.onDeleteClick(position);
                         }
                     }
                 }
