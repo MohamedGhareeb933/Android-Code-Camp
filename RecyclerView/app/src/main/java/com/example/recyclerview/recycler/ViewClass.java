@@ -13,6 +13,10 @@ public class ViewClass {
         this.text2 = string2;
     }
 
+    public void changeText(String text) {
+        this.text1 = text;
+    }
+
     public int getImageRes() {
         return imageRes;
     }

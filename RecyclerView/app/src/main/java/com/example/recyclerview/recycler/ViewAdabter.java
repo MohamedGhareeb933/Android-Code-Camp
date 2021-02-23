@@ -18,6 +18,16 @@ import java.util.ArrayList;
 public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
 
     private ArrayList<ViewClass> viewList;
+    private OnItemClickListener clickListener;
+
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
 
     public static class viewHolder extends RecyclerView.ViewHolder {
 
@@ -25,12 +35,24 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
         public TextView text1;
         public TextView text2;
 
-        public viewHolder(@NonNull View itemView) {
+        public viewHolder(@NonNull View itemView, OnItemClickListener clickListener) {
             super(itemView);
 
             image = itemView.findViewById(R.id.imageview);
             text1 = itemView.findViewById(R.id.textview1);
             text2 = itemView.findViewById(R.id.textview2);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clickListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            clickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -41,9 +63,9 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item, parent);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item, parent, false);
 
-        viewHolder holder = new viewHolder(v);
+        viewHolder holder = new viewHolder(v, clickListener);
 
         return holder;
     }
