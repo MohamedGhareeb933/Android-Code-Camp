@@ -1,7 +1,6 @@
 package com.example.recyclerview.recycler;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +19,7 @@ public class Manager {
     private ViewAdabter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    // get main activity
     private Activity activity;
 
     private Button insertButton;
@@ -49,6 +49,8 @@ public class Manager {
         insertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // get text from EdiText and map it to integer
+                // and pass it as position argument in insert item method
                 insertItem(Integer.parseInt(insertEditText.getText().toString()));
             }
         });
@@ -63,11 +65,13 @@ public class Manager {
 
 
     public void RecyclerViewManager() {
+        // pre define the elements of the list
         viewList = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
             viewList.add(new ViewClass(R.drawable.ic_baseline_cake_24, "line" + i, "line" + i));
         }
 
+        // set adapter, find view and initialise
         recyclerView = (RecyclerView) activity.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(activity);
@@ -76,6 +80,7 @@ public class Manager {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+        // implements the OnItemClickListener interface and override its methods
         adapter.setOnItemClickListener(new ViewAdabter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -91,6 +96,7 @@ public class Manager {
         });
     }
 
+    // insert item at specific location
     public void insertItem(int position) {
         if (position <= viewList.size() && position >= 0) {
             viewList.add(position ,new ViewClass(R.drawable.ic_baseline_cake_24, "line" + position, "line" + position));
@@ -101,6 +107,7 @@ public class Manager {
 
     }
 
+    // remove item at specific location
     public void removeItem(int position) {
         if (position <= viewList.size()) {
             viewList.remove(position);
