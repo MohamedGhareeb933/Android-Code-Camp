@@ -54,7 +54,8 @@ public class LoginFragment extends Fragment {
                 }else {
                     passwordLayout.setError(null);
                     // false mean dont add this fragment to the back stack means once the user logged in cant back to login fragment again.
-                    ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), false);
+                    NavigationHost nav = (NavigationHost) getActivity();
+                    nav.navigateTo(new ProductGridFragment(), false);
                 }
             }
         });

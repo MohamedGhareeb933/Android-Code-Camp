@@ -31,8 +31,7 @@ public class ProductEntry {
     public final String price;
     public final String description;
 
-    public ProductEntry(
-            String title, String dynamicUrl, String url, String price, String description) {
+    public ProductEntry(String title, String dynamicUrl, String url, String price, String description) {
         this.title = title;
         this.dynamicUrl = Uri.parse(dynamicUrl);
         this.url = url;

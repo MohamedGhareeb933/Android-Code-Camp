@@ -12,8 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class ProductGridFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+
 
     @Override
     public View onCreateView(
@@ -22,6 +27,9 @@ public class ProductGridFragment extends Fragment {
         View view =  inflater.inflate(R.layout.shr_product_grid_fragment, container, false);
 
         setUpToolBar(view);
+
+        recyclerView = view.findViewById(R.id.recycler_view);
+
         return view;
     }
 
@@ -35,8 +43,8 @@ public class ProductGridFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.shr_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.shr_toolbar_menu, menu);
     }
 
     @Override

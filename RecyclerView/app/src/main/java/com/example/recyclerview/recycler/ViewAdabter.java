@@ -25,7 +25,6 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
     public interface OnItemClickListener{
         void onItemClick(int position);
         void onDeleteClick(int position);
-
     }
 
     public void setOnItemClickListener(OnItemClickListener clickListener) {
@@ -85,9 +84,9 @@ public class ViewAdabter extends RecyclerView.Adapter<ViewAdabter.viewHolder> {
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item, parent, false);
 
-        viewHolder holder = new viewHolder(v, clickListener);
+        viewHolder holder = new viewHolder(view, clickListener);
 
         return holder;
     }

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import androidx.appcompat.app.AppCompatDelegate;
 
+
 public class ShrineApplication extends Application {
     private static ShrineApplication instance;
     private static Context appContext;

@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shr_main_activity);
 
-        // if the no Data in Save insatnce object
+        // if the no Data in Save instance object
         if (savedInstanceState == null) {
             // get or return the fragments associated with this activity
             getSupportFragmentManager()
