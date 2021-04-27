@@ -21,20 +21,31 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
     private ImageRequester imageRequester;
 
     ProductCardRecyclerViewAdapter(List<ProductEntry> productList) {
+
         this.productList = productList;
         imageRequester = ImageRequester.getInstance();
+
     }
 
     @NonNull
     @Override
     public ProductCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.shr_product_card, parent, false);
         return new ProductCardViewHolder(layoutView);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
-        // TODO: Put ViewHolder binding code here in MDC-102
+
+        if (productList != null && position < getItemCount()) {
+            ProductEntry product = productList.get(position);
+            holder.ProductTitle.setText(product.title);
+            holder.productPrice.setText(product.price);
+            imageRequester.setImageFromUrl(holder.networkImageView, product.url);
+        }
+
     }
 
     @Override
